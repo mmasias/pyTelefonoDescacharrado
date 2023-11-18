@@ -43,3 +43,9 @@ Deberíamos poder preguntarle cuántos niños tiene|public int numeroNiños()
 Deberíamos poder pedirle que saque por pantalla a todos los niños.|public void listaNiños()
 Deberíamos poder pedirle, para algunas tareas puntuales, que nos pase la lista de niños (no confundir con la tarea anterior, que lo que hace es mostrar o imprimir la lista de los niños). En este caso, lo que debe hacer es devolvernos un objeto de la clase Lista conteniendo los niños de la cola.|public List<Niño> getNiños()
 
+## Paso 006
+
+A partir aquí, tras haber definido las responsabilidades y métodos de la clase **Cola**, y teniendo claro que la clase debe resolver todo únicamente con lo que cuenta (pilar fundamental del abordaje de escenarios mediante la orientación a objetos: encapsulamiento, autonomía, entre otros), procedemos a completar el código de los métodos anteriormente descritos.
+
+> Nota: Es importante recordar y reconocer que no necesitamos tener todas las clases completamente desarrolladas para comenzar a trabajar en una clase específica. A medida que avanzamos en el desarrollo de una clase, iremos completando y refinando las demás. Sin embargo, es crucial mantener claras y respetar las interfaces de cada clase, que definen cómo se comunican y colaboran entre sí. Esto permite un enfoque modular y flexible en la solución de problemas, similar a ensamblar piezas de un rompecabezas que están siendo diseñadas simultáneamente pero deben encajar perfectamente al final. Este proceso iterativo permite que las clases evolucionen y se adapten a medida que el proyecto progresa y nuestras necesidades y comprensión se expanden.
+
