@@ -4,7 +4,7 @@ Esta solución se apoya en los objetos List y Node revisados en sesiones previas
 
 ## Paso 000
 
-- Se prepara el espacio de trabajo, se incluyen las clases List y Node
+Se prepara el espacio de trabajo, se incluyen las clases List y Node
 
 ## Paso 001
 
@@ -25,6 +25,21 @@ Esta solución se apoya en los objetos List y Node revisados en sesiones previas
 
 ## Paso 004
 
-- Terminada la definición de la clase Pizarra, volvemos a la clase Ludoteca y vemos que nos queda pendiente la definición de la clase Monitor, una clase clave para el juego, por lo que la iremos definiendo y desarrollando cuidadosamente.
+- Terminada la definición de la clase **Pizarra**, volvemos a la clase **Ludoteca** y vemos que nos queda pendiente la definición de la clase **Monitor**, una clase clave para el juego, por lo que la iremos definiendo y desarrollando cuidadosamente.
 - Para empezar, atendemos a lo que nos precisa el constructor que hemos invocado en Ludoteca: al momento de crear la clase Monitor, esta debe almacenar su nombre.
 - Asimismo, por definición del problema, cada Monitor gestiona su cola de niños.
+
+## Paso 005
+
+Antes de continuar con la clase **Monitor**, construiremos la clase **Cola**, habida cuenta que está a medio camino entre las clases **Mundo**, **Ludoteca**, **Monitor** por un lado (clases que hemos de personalizar y definir cuidadosamente) y la clase **List** y **Node** (clases muy genéricas). Diríamos que es como la clase **Pizarra**: podemos inferir con alto grado de precisión qué responsabilidades va a asumir y qué cosas le vamos a pedir. Esto es:
+
+|||
+|-|-|
+Tendrá una lista de niños, que empezará vacía.|
+Deberíamos poder pasarle un niño para que lo agrege a la cola.|public void addNiño(Niño niño)
+Deberíamos poder pedirle un niño.|public Niño removeNiño()
+Deberíamos poder preguntarle si tiene niños.|public boolean hayNiños()
+Deberíamos poder preguntarle cuántos niños tiene|public int numeroNiños()
+Deberíamos poder pedirle que saque por pantalla a todos los niños.|public void listaNiños()
+Deberíamos poder pedirle, para algunas tareas puntuales, que nos pase la lista de niños (no confundir con la tarea anterior, que lo que hace es mostrar o imprimir la lista de los niños). En este caso, lo que debe hacer es devolvernos un objeto de la clase Lista conteniendo los niños de la cola.|public List<Niño> getNiños()
+
