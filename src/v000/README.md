@@ -22,3 +22,9 @@ Esta solución se apoya en los objetos List y Node revisados en sesiones previas
 
 - Vamos con una clase que a priori es "sencilla" y casi que podríamos dejarla toda lista: la clase **Pizarra**.
 - A partir del enunciado, podemos inferir que las responsabilidades de esta clase son permitir que otros objetos puedan escribir un mensaje, puedan leerlo y pueden limpiar la pizarra (borrando el mensaje).
+
+## Paso 004
+
+- Terminada la definición de la clase Pizarra, volvemos a la clase Ludoteca y vemos que nos queda pendiente la definición de la clase Monitor, una clase clave para el juego, por lo que la iremos definiendo y desarrollando cuidadosamente.
+- Para empezar, atendemos a lo que nos precisa el constructor que hemos invocado en Ludoteca: al momento de crear la clase Monitor, esta debe almacenar su nombre.
+- Asimismo, por definición del problema, cada Monitor gestiona su cola de niños.
