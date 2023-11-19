@@ -77,3 +77,17 @@ Un niño debería poder recibir un pizarrin.|public void recibirPizarrin(Pizarra
 
 Definiremos también el constructor, el cual recibe un único parámetro (el nombre del niño). Asimismo, un getter para poder acceder al nombre del niño.
 
+## Paso 008
+
+Continuando con la clase Niño, vamos a concluir con la implementación del comportamiento restante. 
+
+||||
+|-|-|-|
+Un niño debería poder recibir un mensaje, y anotarlo en su pizarrín|Siendo la recepción del mensaje una comunicación que recibe de fuera, y la tarea de anotarlo en su pizarrín responsabilidad del niño, colaborando con la clase pizarrin que tiene asociada.|public void recibirMensaje(String mensaje)
+||Al resolver este comportamiento, hemos de tener en cuenta que los niños "*a veces inadvertidamente suelen cambiar una o dos letras del mensaje al escribirlo*". Por tanto, además de usar el método *escribirMensaje* del pizarrin asociado al niño, antes el niño debe modificar el mensaje recibido de acuerdo lo anteriormente dicho. Para esto crearemos el método privado modificarMensaje.
+Un niño debería poder mostrar el mensaje que tiene anotado en su pizarrín.||public String mostrarMensaje()
+Un niño debería poder limpiar su pizarrín cuando reciba la instrucción de hacerlo.||public void limpiarPizarrin()
+
+Con esto, salvo que aparezca alguna cuestión no prevista más adelante, podríamos dar por terminada la implementación de la clase Niño, sabiendo, no obstante, que podrían aparecer cambios, pero que por la naturaleza del código escrito sería razonablemente sencillo incluirlo
+
+> Nota: nótese como durante el desarrollo e iteraciones se ha hecho especial hincapié en evitar el efecto yo-yo. Es decir, cuando evaluamos y desarrollamos una clase, nos centrábamos en los datos y comportamiento de la misma, y teníamos claro que la clase debe ser autosuficiente y resolver todo únicamente con lo que cuenta. Es clave para esto una adecuada asignación de responsabilidades a la clase.
