@@ -31,4 +31,16 @@ class Monitor {
         System.out.println();
     }
 
+    private void recibeNiño(Niño niño, Pizarra pizarrin) {
+        niño.recibirPizarrin(pizarrin);
+        colaNiños.addNiño(niño);
+    }
+
+    public void entregaNiños(Monitor otroMonitor) {
+        while (colaNiños.hayNiños()) {
+            System.out.println(" >  " + this.nombre + " ENTREGA NIÑO");
+            Niño unNiño = colaNiños.removeNiño();
+            otroMonitor.recibeNiño(unNiño, new Pizarra());
+        }
+    }    
 }

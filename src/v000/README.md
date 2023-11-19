@@ -163,3 +163,24 @@ estaJugando()|Responde si está o no jugando.|Hará falta (agregamos) un atribut
 mostrarListaNiños()|Muestra la lista de los niños que tiene el Monitor en cola.
 
 Dejando los métodos restantes para la siguiente iteración.
+
+## Paso 12
+
+En este punto, vamos a ir cerrando todas las responsabilidades de la clase **Monitor**. Teniendo ya resuelta la recepción de un niño que acaba de llegar, resta implementar la entrega de niños del primer monitor (Lydia) al segundo monitor (Aisha). Veamos esto en profundidad:
+
+|||
+|-|-|
+El **Monitor** deberia permitir pasar los niños que tiene en cola al Monitor que va a gestionar el juego|entregaNiños(Monitor otroMonitor)
+Este Monitor receptor de los niños debe ponerlos en cola. ¿Podríamos reutilizar el método existente *recibeNiño()*?
+Si bien es cierto que **Monitor** tiene ya un método *recibeNiño()* que agrega niños a la cola (a fin de cuentas es un objeto de la clase Monitor), el proceso no es el mismo puesto que los niños que van a jugar no solo han de ir a cola, sino que deben recibir un pizarrin.|recibeNiño(Niño niño, Pizarra pizarrin)
+
+Aprovechamos aquí la capacidad de Java de poder sobrecargar un método, diferenciándolo por los parámetros:
+
+|Entrada de niño|Paso de un Monitor a otro Monitor|
+|-|-|
+public void recibeNiño(Niño niño)|private void recibeNiño(Niño niño, Pizarra pizarrin) 
+
+Además, dejamos claramente definido que si bien la entrada de niño la puede solicitar alguien externo (en este caso, la ludoteca, por eso lo declaramos como public), el paso de un monitor a otro monitor solo la puede solicitar un monitor (private).
+
+Con esto en mente, al implementar entregaNiños hacemos uso de este nuevo método. Sacamos un niño de la cola, creamos una pizarra y hacemos que el segundo Monitor reciba  un niño y, como lo recibe con este nuevo método, le da una pizarra.
+
