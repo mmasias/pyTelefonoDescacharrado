@@ -49,3 +49,31 @@ A partir aquí, tras haber definido las responsabilidades y métodos de la clase
 
 > Nota: Es importante recordar y reconocer que no necesitamos tener todas las clases completamente desarrolladas para comenzar a trabajar en una clase específica. A medida que avanzamos en el desarrollo de una clase, iremos completando y refinando las demás. Sin embargo, es crucial mantener claras y respetar las interfaces de cada clase, que definen cómo se comunican y colaboran entre sí. Esto permite un enfoque modular y flexible en la solución de problemas, similar a ensamblar piezas de un rompecabezas que están siendo diseñadas simultáneamente pero deben encajar perfectamente al final. Este proceso iterativo permite que las clases evolucionen y se adapten a medida que el proyecto progresa y nuestras necesidades y comprensión se expanden.
 
+## Paso de repaso
+
+- Clases que tenemos: Mundo, Ludoteca, Monitor, Cola, Pizarra.
+- Clases auxiliares: List, Node.
+
+## Paso 007
+
+Repasando las clases creadas, vemos que está pendiente iniciar la definición de la clase **Niño**, además por supuesto, de completar algunos métodos para otras clases y de completar la funcionalidad. Para mantener este esquema de construcción, terminemos con la creación de la clase Niño, para asi tener completo el ecosistema sobre el que se apoyará la implementación de la solución.
+
+Del enunciado del problema podemos inferir las responsabilidades:
+
+|||
+|-|-|
+Un niño debería tener un nombre y la capacidad de tener un pizarrín.
+Un niño debería poder recibir un pizarrin.
+Un niño debería poder recibir un mensaje, y anotarlo en su pizarrín.
+Un niño debería poder mostrar el mensaje que tiene anotado en su pizarrín.
+Un niño debería poder limpiar su pizarrín cuando reciba la instrucción de hacerlo.
+
+Con esto en mente, creamos la clase Niño y especificamos los atributos privados que le permitan tener lo que debe tener (nombre y pizarrín), así como los métodos que le permitan hacer cosas. Definiremos en esta iteración los atributos y métodos más básicos/obvios/sencillos (constructor), y dejamos para la siguiente iteración el concluir la definición de esta clase: procedemos con 
+
+|||
+|-|-|
+Un niño debería tener un nombre y la capacidad de tener un pizarrín.|
+Un niño debería poder recibir un pizarrin.|public void recibirPizarrin(Pizarra pizarra)
+
+Definiremos también el constructor, el cual recibe un único parámetro (el nombre del niño). Asimismo, un getter para poder acceder al nombre del niño.
+
