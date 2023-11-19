@@ -79,7 +79,7 @@ Definiremos también el constructor, el cual recibe un único parámetro (el nom
 
 ## Paso 008
 
-Continuando con la clase Niño, vamos a concluir con la implementación del comportamiento restante. 
+Continuando con la clase Niño, vamos a concluir con la implementación del comportamiento restante.
 
 ||||
 |-|-|-|
@@ -91,3 +91,25 @@ Un niño debería poder limpiar su pizarrín cuando reciba la instrucción de ha
 Con esto, salvo que aparezca alguna cuestión no prevista más adelante, podríamos dar por terminada la implementación de la clase Niño, sabiendo, no obstante, que podrían aparecer cambios, pero que por la naturaleza del código escrito sería razonablemente sencillo incluirlo
 
 > Nota: nótese como durante el desarrollo e iteraciones se ha hecho especial hincapié en evitar el efecto yo-yo. Es decir, cuando evaluamos y desarrollamos una clase, nos centrábamos en los datos y comportamiento de la misma, y teníamos claro que la clase debe ser autosuficiente y resolver todo únicamente con lo que cuenta. Es clave para esto una adecuada asignación de responsabilidades a la clase.
+
+## Paso 009
+
+Cerrada la clase Niño, toca continuar con alguna de las clases que tenemos pendientes, las cuales son **Mundo**, **Ludoteca** y **Monitor**. Podemos, nuevamente, volver a la clase "principal", la que está en la parte más alta de la jerarquía, que es la clase **Mundo**, resolver lo que tengamos que dejar resuelto allí y nuevamente iterar hacia las siguientes clases descendentes.
+
+En la clase **Mundo** habíamos dejado pendiente inminente el método iniciarSimulación, que sería el que dispararía el proceso completo. Esta simulación tendría que realizarse minuto a minuto hasta que se alcance el tiempo total.
+
+|Durante cada uno de esos minutos tocaría|||
+|-|-|-|
+|Gestión de los niños||iniciarSimulación()
+||Implementar las reglas de llegada de los niños|private boolean llegaNiño()
+||Implementar la generación de un niño|private Niño generarNiño()
+||Método auxiliar que se "inventa" un nombre.|private String inventarNombre()|
+|Hacer pasar al niño que llega a la ludoteca.||ludoteca.recibirNiño(niño)
+|Indicarle a la ludoteca que haga lo que tenga que hacer.||ludoteca.actualizar()
+|Indicarle a la ludoteca que nos diga como va todo||ludoteca.verEstado()
+
+Nótese como hemos delegado a la ludoteca las responsabilidades de recibir a los niños, actualizar su estado (tanto de los niños en espera como los niños jugando), así como de saber contarnos como va todo.
+
+> NOTA: Para esta iteración se ha simplificado la regla de llegada de niños, asumiendo un 50% de probabilidades de llegada de un niño en un minuto. El carácter modular de la solución debería permitirnos luego ajustar esto sin mayor impacto en las demás clases o métodos de esta clase.
+
+> NOTA II: A partir de ahora se incluyen, en algunos métodos, impresiones por pantalla para ir viendo la evolución de la simulación. Hemos de ser cuidadosos con su inclusión para no entorpecer la claridad del código que generamos, y hacerlo de modo que luego podamos extraerlo a lo que más adelante veremos que se conocen como *clases de vista*.
