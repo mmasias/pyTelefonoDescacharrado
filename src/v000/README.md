@@ -113,3 +113,23 @@ Nótese como hemos delegado a la ludoteca las responsabilidades de recibir a los
 > NOTA: Para esta iteración se ha simplificado la regla de llegada de niños, asumiendo un 50% de probabilidades de llegada de un niño en un minuto. El carácter modular de la solución debería permitirnos luego ajustar esto sin mayor impacto en las demás clases o métodos de esta clase.
 
 > NOTA II: A partir de ahora se incluyen, en algunos métodos, impresiones por pantalla para ir viendo la evolución de la simulación. Hemos de ser cuidadosos con su inclusión para no entorpecer la claridad del código que generamos, y hacerlo de modo que luego podamos extraerlo a lo que más adelante veremos que se conocen como *clases de vista*.
+
+## Paso 010
+
+Abordamos ahora una de las dos clases que tenemos pendientes: Ludoteca y Monitor. Por continuar la progresión jerárquica, elegimos trabajar con la clase Ludoteca, la cual además tiene ya "deberes asignados" por la clase Mundo:
+
+|Mundo le pide a Ludoteca|||
+|-|-|-|
+|recibirNiño(niño)|Recibir un niño implica -en la Ludoteca- que los reciba Lydia, los ponga en cola, le pregunte a Aisha si está jugando, y si no está jugando, le entregue a los niños para que en la siguiente ronda de juego cuente con ellos para jugar.
+|actualizar()|Habíamos dicho que aquí la Ludoteca "haga lo que tenga que hacer", y lo que tiene que hacer (o mejor dicho, lo que le queda por hacer dado que ya recibió un niño y lo colocó con la monitora que debía), es jugar, si la monitora puede.
+|verEstado()|Aquí la ludoteca nos muestra su estado, que pasa por mostrar como va cada una de las monitoras: haremos pues que cada una de ellas nos mueste su lista de niños.
+
+### Mención especial a la entrega de niños
+
+Una cuestión de diseño que puede resultar interesante de analizar: como pasan los niños de un monitor a otro. Las consideraciones no son menores, sobretodo teniendo en cuenta como estamos estructurando la información. Caben dos aproximaciones: 
+
+|Aisha recibe los Niños|Lydia entrega los Niños|
+|-|-|
+aisha.recibeNiños(lydia)|lydia.entregaNiños(aisha)
+
+Como eso es una responsabilidad que se ve(rá) gestionada al completo por la clase Monitor, elegimos una de ambas (guardamos bajo la manga la posibilidad de elegir el otro camino) y cuando estemos abordando el análisis y desarrollo de la clase Monitor evaluaremos pros & contras de cada una de estas aproximaciones y nos decantaremos por aquella que consideremos más favorable.
