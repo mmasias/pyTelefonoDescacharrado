@@ -133,3 +133,33 @@ Una cuestión de diseño que puede resultar interesante de analizar: como pasan 
 aisha.recibeNiños(lydia)|lydia.entregaNiños(aisha)
 
 Como eso es una responsabilidad que se ve(rá) gestionada al completo por la clase Monitor, elegimos una de ambas (guardamos bajo la manga la posibilidad de elegir el otro camino) y cuando estemos abordando el análisis y desarrollo de la clase Monitor evaluaremos pros & contras de cada una de estas aproximaciones y nos decantaremos por aquella que consideremos más favorable.
+
+## Paso 11
+
+Procedemos con la clase que nos falta, la clase **Monitor**.
+
+**Monitor** parte por tener que implementar las responsabilidades que le hemos asignado al momento de construir las otras clases, particularmente **Ludoteca**. Tenemos pues:
+
+||||
+|-|-|-|
+recibeNiño(Niño niño)|lydia.recibeNiño(niño);|El monitor recibe un Niño y lo pone en su cola.
+tieneNiños()|lydia.tieneNiños()|Responde si tiene o no Niños en su cola.
+estaJugando()|aisha.estaJugando()|Responde si está o no jugando.
+entregaNiños(Monitor monitor)|lydia.entregaNiños(aisha)|Le entrega los Niños que tiene en su cola al monitor que recibe como parámetro.
+puedeJugar()|aisha.puedeJugar()|Responde si puede o no jugar.
+jugar()|aisha.jugar()|Realiza un turno del juego.
+mostrarListaNiños()|lydia.mostrarListaNiños()|Muestra la lista de los niños que tiene el Monitor en cola.
+
+Empezaremos con los métodos más "sencillos", que además nos permitirán abordar en la siguiente iteración los métodos más complejos con herramientas que le permitan tomar decisiones.
+
+En esta iteración, abordaremos:
+
+||||
+|-|-|-|
+recibeNiño(Niño niño)|El monitor recibe un Niño y lo pone en su cola.
+tieneNiños()|Responde si tiene o no Niños en su cola.
+puedeJugar()|Responde si puede o no jugar, en función a los niños que tenga en su cola.
+estaJugando()|Responde si está o no jugando.|Hará falta (agregamos) un atributo que nos diga y almacene este estado: ```private boolean estaJugando```. Y ajustar el constructor para que, al momento de crear al ***Monitor*** inicializar este valor a falso.
+mostrarListaNiños()|Muestra la lista de los niños que tiene el Monitor en cola.
+
+Dejando los métodos restantes para la siguiente iteración.
