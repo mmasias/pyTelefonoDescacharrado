@@ -2,6 +2,7 @@ class Monitor {
     private String nombre;
     private Cola colaNiños;
     private boolean estaJugando;
+    Node<Niño> niñoTurno;
 
     public Monitor(String nombre) {
         this.nombre = nombre;
@@ -42,5 +43,36 @@ class Monitor {
             Niño unNiño = colaNiños.removeNiño();
             otroMonitor.recibeNiño(unNiño, new Pizarra());
         }
-    }    
+    }
+
+    public void jugar() {
+        if (!estaJugando) {
+            estaJugando = true;
+            limpiarPizarrines();
+            niñoTurno = colaNiños.getNiños().getFirst();
+            niñoTurno.getData().recibirMensaje("ABCDEFGHIJKLM");
+        } else {
+            Node<Niño> niño = colaNiños.getNiños().getFirst();
+            while (niño != niñoTurno) {
+                niño = niño.getNext();
+            }
+            if (niño.getNext() == null) {
+                estaJugando = false;
+                niñoTurno = colaNiños.getNiños().getFirst();
+            } else {
+                Niño niñoActual = niño.getData();
+                Niño siguienteNiño = niño.getNext().getData();
+                siguienteNiño.recibirMensaje(niñoActual.mostrarMensaje());
+                niñoTurno = niño.getNext();
+            }
+        }
+    }
+
+    private void limpiarPizarrines() {
+        Node<Niño> niño = colaNiños.getNiños().getFirst();
+        while (niño != null) {
+            niño.getData().limpiarPizarrin();
+            niño = niño.getNext();
+        }
+    }
 }

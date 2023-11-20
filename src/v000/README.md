@@ -184,3 +184,300 @@ Además, dejamos claramente definido que si bien la entrada de niño la puede so
 
 Con esto en mente, al implementar entregaNiños hacemos uso de este nuevo método. Sacamos un niño de la cola, creamos una pizarra y hacemos que el segundo Monitor reciba  un niño y, como lo recibe con este nuevo método, le da una pizarra.
 
+## Paso 13
+
+Resta implementar el método que ejecuta el juego, jugar(), que será ejecutado por el Monitor encargado del juego. 
+
+### Al inicio
+
+Cuando aún no ha empezado ningún juego (o ha terminado un juego anterior), para empezar a jugar debe pedirle a los niños que limpien los pizarrines y darle al primer niño una palabra. Implementamos entonces el método auxiliar *limpiarPizarrines()*, el que itera niño a niño y les va pidiendo que limpien sus pizarrines. Hecho esto, le da un mensaje al primer niño.
+
+> NOTA: Para esta iteración se ha simplificado el mensaje a enviar, indicando al primer niño el mensaje ABCDEFGHIJKLM. El carácter modular de la solución debería permitirnos luego ajustar esto sin mayor impacto en las demás clases o métodos de esta clase.
+
+### Una vez iniciado un juego
+
+|||
+|-|-|
+En cada turno, un niño le pasa al siguiente el mensaje mostrándole la pizarra, y el niño que lo recibe.|siguienteNiño.recibirMensaje(niñoActual.mostrarMensaje())
+
+> NOTA: Dada la naturaleza de la solución, hace falta saber qué niño tiene el turno: para esto implementamos en la clase un atributo ```Node<Niño> niñoTurno```, que será el que utilicemos para almacenar el niño que tiene el turno en el juego.
+ 
+> NOTA II: Para poder realizar un seguimiento del juego, agregamos en ```Niño.recibirMensaje(mensaje)``` la impresión del mensaje que recibe y del mensaje que escribe en su pizarrin.
+
+> NOTA III: Hacemos un ajuste menor en ```Niño.inventarNombre()``` para corregir una pequeña errata al determinar el tamaño de la matriz de nombres.
+
+## Primeros 30 minutos de la simulación
+
+Con lo desarrollado hasta aquí, la salida del proyecto es la siguiente:
+
+```
+┏[manuel]--[seguimiento-desarrollo-v000 ≡ ● ]
+┖[~/misRepos/pyTelefonoDescacharrado]
+    cd /home/manuel/misRepos/pyTelefonoDescacharrado java Mundo
+==============================
+Minuto 0
+Llega Pablo C.R.
+ >  Lydia ENTREGA NIÑO
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / 
+
+
+==============================
+Minuto 1
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / 
+
+
+==============================
+Minuto 2
+Llega Jorge O.G.
+ >  Lydia ENTREGA NIÑO
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / 
+
+
+==============================
+Minuto 3
+Llega Álvaro L.S.
+ >  Lydia ENTREGA NIÑO
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / 
+
+
+==============================
+Minuto 4
+Llega Iñaki T.A.
+ >  Lydia ENTREGA NIÑO
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / 
+
+
+==============================
+Minuto 5
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / 
+
+
+==============================
+Minuto 6
+Llega Aníbal B.G.
+ >  Lydia ENTREGA NIÑO
+[Pablo C.R.] recibe [ABCDEFGHIJKLM] y ha escrito [ABCDEFllIJKLM]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 7
+[Jorge O.G.] recibe [ABCDEFllIJKLM] y ha escrito [ABCjEFllIJKLh]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 8
+[Álvaro L.S.] recibe [ABCjEFllIJKLh] y ha escrito [fBCdEFllIJKLh]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 9
+Llega José Manuel R.M.
+[Iñaki T.A.] recibe [fBCdEFllIJKLh] y ha escrito [fBCdEkllInKLh]
+> Lydia --> José Manuel R.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 10
+Llega Pablo C.R.
+[Aníbal B.G.] recibe [fBCdEkllInKLh] y ha escrito [fBodEkllInlLh]
+> Lydia --> José Manuel R.M. / Pablo C.R. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 11
+> Lydia --> José Manuel R.M. / Pablo C.R. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 12
+[Pablo C.R.] recibe [ABCDEFGHIJKLM] y ha escrito [ABCgEFGHhJKLM]
+> Lydia --> José Manuel R.M. / Pablo C.R. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 13
+[Jorge O.G.] recibe [ABCgEFGHhJKLM] y ha escrito [AuCgEFGHhJKkM]
+> Lydia --> José Manuel R.M. / Pablo C.R. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 14
+Llega Andriuw Xavier Y.Z.
+[Álvaro L.S.] recibe [AuCgEFGHhJKkM] y ha escrito [AuCgEFGHhhukM]
+> Lydia --> José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 15
+Llega Alejandro V.P.
+[Iñaki T.A.] recibe [AuCgEFGHhhukM] y ha escrito [AzCgEFGHhjukM]
+> Lydia --> José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 16
+Llega Adrián P.B.
+[Aníbal B.G.] recibe [AzCgEFGHhjukM] y ha escrito [AbCgEFvHhjukM]
+> Lydia --> José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 17
+Llega José Manuel R.P.
+> Lydia --> José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / 
+
+
+==============================
+Minuto 18
+Llega José Manuel R.P.
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+ >  Lydia ENTREGA NIÑO
+[Pablo C.R.] recibe [ABCDEFGHIJKLM] y ha escrito [ABCoEFGHIJKLM]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 19
+[Jorge O.G.] recibe [ABCoEFGHIJKLM] y ha escrito [ABCoeFGHeJKLM]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 20
+[Álvaro L.S.] recibe [ABCoeFGHeJKLM] y ha escrito [ABCevFGHeJKLM]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 21
+[Iñaki T.A.] recibe [ABCevFGHeJKLM] y ha escrito [ABCevFeHtJKLM]
+> Lydia --> 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 22
+Llega Rubén S.F.
+[Aníbal B.G.] recibe [ABCevFeHtJKLM] y ha escrito [ABieaFeHtJKLM]
+> Lydia --> Rubén S.F. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 23
+Llega Veronika Alexandra E.M.
+[José Manuel R.M.] recibe [ABieaFeHtJKLM] y ha escrito [ABcwaFeHtJKLM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 24
+[Pablo C.R.] recibe [ABcwaFeHtJKLM] y ha escrito [ABcmazeHtJKLM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 25
+[Andriuw Xavier Y.Z.] recibe [ABcmazeHtJKLM] y ha escrito [AwcmazeHtfKLM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 26
+[Alejandro V.P.] recibe [AwcmazeHtfKLM] y ha escrito [AgcmazeHtfKfM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 27
+[Adrián P.B.] recibe [AgcmazeHtfKfM] y ha escrito [AgcmazettflfM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 28
+Llega Daniel L.A.
+[José Manuel R.P.] recibe [AgcmazettflfM] y ha escrito [AgcxazettflfM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / Daniel L.A. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 29
+Llega Neco M.S.
+[José Manuel R.P.] recibe [AgcxazettflfM] y ha escrito [AgcxazmttglfM]
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / Daniel L.A. / Neco M.S. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+
+
+==============================
+Minuto 30
+Llega Diego Fernando M.R.
+> Lydia --> Rubén S.F. / Veronika Alexandra E.M. / Daniel L.A. / Neco M.S. / Diego Fernando M.R. / 
+
+> Aisha --> Pablo C.R. / Jorge O.G. / Álvaro L.S. / Iñaki T.A. / Aníbal B.G. / José Manuel R.M. / Pablo C.R. / Andriuw Xavier Y.Z. / Alejandro V.P. / Adrián P.B. / José Manuel R.P. / José Manuel R.P. / 
+```

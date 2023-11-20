@@ -17,6 +17,7 @@ class Niño {
 
     public void recibirMensaje(String mensaje) {
         pizarrin.escribirMensaje(modificarMensaje(mensaje));
+        System.out.println("[" + nombre + "] recibe [" + mensaje + "] y ha escrito [" + pizarrin.leerMensaje() + "]");        
     }
 
     private String modificarMensaje(String mensaje) {
