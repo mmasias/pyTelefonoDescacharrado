@@ -138,3 +138,49 @@ Hay que preparar un mensaje|Por mantenerlo simple enviamos el mensaje "Dicen que
 Hay que indicar qué niño juega (en este caso, el primero)|Creamos childTurn
 
 Esto ocurre solo al inicio de un juego, porque luego, cuando Aisha haya cedido el turno al primer niño, hay que manejarlo de otro modo (hasta llegar al último)
+
+### Juego
+
+Si el juego ya ha dado inicio, en cada turno
+
+|||
+|-|-|
+El niño al que le toca, altera el mensaje|Apoyándonos en alteredMessage()
+Se pasa el turno al siguiente niño.|Incrementamos childTurn
+El turno termina al llegar al niño final.|Comparamos childTurn y el número de niños que tiene Aisha en cola.
+
+> NOTA: Por mantener sencilla esta implementación, asumimos que los niños alteran el mensaje agregándole una X al final. Más adelante podremos complicar esta forma de alterar el mensaje.
+
+```
+Ludoteca PRG1 - minuto 8
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 9
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aisha tiene en cola [5] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 10
+> Llego un niño. Ahora Lydia tiene en cola [1]
+El niño [1] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!X
+Ludoteca PRG1 - minuto 11
+> Llego un niño. Ahora Lydia tiene en cola [2]
+El niño [2] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XX
+Ludoteca PRG1 - minuto 12
+> Llego un niño. Ahora Lydia tiene en cola [3]
+El niño [3] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XXX
+Ludoteca PRG1 - minuto 13
+El niño [4] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XXXX
+Ludoteca PRG1 - minuto 14
+> Llego un niño. Ahora Lydia tiene en cola [4]
+El niño [5] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XXXXX
+Ludoteca PRG1 - minuto 15
+> No están jugando. Aisha tiene en cola [9] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 16
+El niño [1] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!X
+Ludoteca PRG1 - minuto 17
+> Llego un niño. Ahora Lydia tiene en cola [1]
+El niño [2] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XX
+Ludoteca PRG1 - minuto 18
+El niño [3] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XXX
+Ludoteca PRG1 - minuto 19
+El niño [4] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!XXXX
+```

@@ -24,10 +24,19 @@ class ChineseWhispers {
             }
             if (aisha >= MINIMAL_CHILDS && !isPlaying) {
                 isPlaying = true;
-                theMessage = "The exam will be hard. Pass it!";
+                theMessage = "Dicen que el examen estará difícil. ¡Pásalo!";
                 childTurn = 1;
+            } else if (isPlaying) {
+                theMessage = alteredMessage(theMessage);
+                System.out.println("El niño [" + childTurn + "] pasa este mensaje: " + theMessage);
+                childTurn++;
+                isPlaying = childTurn <= aisha;
             }
         }
+    }
+
+    private static String alteredMessage(String theMessage) {
+        return theMessage + "X";
     }
 
     static boolean childArrives() {
