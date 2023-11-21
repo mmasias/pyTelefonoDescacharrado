@@ -10,3 +10,49 @@ Inicio del proceso y puesta a punto del entorno de desarrollo: clase [ChineseWhi
 
 Empezamos por modelar el tiempo de la simulación. En este caso, como lo debatimos en clase, se utiliza un bucle for que gobierna el tiempo que está abierta la ludoteca.
 
+```
+┏[manuel]--[seguimiento-desarrollo-vPRG1 ≡ ● ]
+┖[~/misRepos/pyTelefonoDescacharrado]
+    java vPRG1.ChineseWhispers 
+Ludoteca PRG1 - minuto 0
+Ludoteca PRG1 - minuto 1
+Ludoteca PRG1 - minuto 2
+Ludoteca PRG1 - minuto 3
+Ludoteca PRG1 - minuto 4
+Ludoteca PRG1 - minuto 5
+Ludoteca PRG1 - minuto 6
+Ludoteca PRG1 - minuto 7
+Ludoteca PRG1 - minuto 8
+Ludoteca PRG1 - minuto 9
+Ludoteca PRG1 - minuto 10
+(...)
+```
+
+## Paso 002 - Llegada de niños
+
+Abordamos la llegada de los niños, simplificando (de momento) lo planteado en el enunciado original: la probabilidad de llegada de niños en un minuto es del 30%.
+
+Para fomentar la claridad del código y ejercitar el principio de adecuado reparto de responsabilidades y la teoría de métodos estáticos, crearemos el método estático llegaNiño que nos dirá si llega un niño.
+
+En este punto, pasa el tiempo y sabemos si llega un niño.
+
+```
+┏[manuel]--[seguimiento-desarrollo-vPRG1 ≡ ● ]
+┖[~/misRepos/pyTelefonoDescacharrado]
+    java vPRG1.ChineseWhispers 
+Ludoteca PRG1 - minuto 0
+Ludoteca PRG1 - minuto 1
+> Llego un niño!
+Ludoteca PRG1 - minuto 2
+> Llego un niño!
+Ludoteca PRG1 - minuto 3
+> Llego un niño!
+Ludoteca PRG1 - minuto 4
+Ludoteca PRG1 - minuto 5
+Ludoteca PRG1 - minuto 6
+Ludoteca PRG1 - minuto 7
+Ludoteca PRG1 - minuto 8
+Ludoteca PRG1 - minuto 9
+Ludoteca PRG1 - minuto 10
+(...)
+```
