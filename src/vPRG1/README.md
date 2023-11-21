@@ -5,3 +5,8 @@ En inglés, el juego del "teléfono descacharrado" o "teléfono descompuesto" a 
 ## Paso 000
 
 Inicio del proceso y puesta a punto del entorno de desarrollo: clase [ChineseWhispers.java](ChineseWhispers.java) en la carpeta [/vPRG1](/)
+
+## Paso 001 - El tiempo
+
+Empezamos por modelar el tiempo de la simulación. En este caso, como lo debatimos en clase, se utiliza un bucle for que gobierna el tiempo que está abierta la ludoteca.
+
