@@ -189,8 +189,18 @@ El niño [4] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!
 
 - [x] Dibujar las colas.
 - [ ] Hacer seguimiento del mensaje final.
-- [ ] Mostrar quién tiene la pizarra.
+- [x] Mostrar quién tiene la pizarra.
 - [ ] Mostrar qué tiene el que tiene la pizarra.
-- [ ] Pulir la llegada de niños (no más niños a partir del minuto 30)
+- [x] Pulir la llegada de niños (no más niños a partir del minuto 40)
 
-¿Algo más?
+```
+==============================
+Ludoteca PRG1 - minuto 35
+Lydia > 🧒🧒
+------------------------------
+Aisha > 🧒🧒🧒🗨️ 🧒🧒🧒🧒
+------------------------------
+🗨️: Dicen que el examen estará difícil. ¡Pásalo!XXX
+```
+
+**showQueue()** hace uso de una característica muy interesante llamada sobrecarga. Recordármelo en clase para comentarlo.
