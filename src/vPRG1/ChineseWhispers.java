@@ -48,6 +48,7 @@ class ChineseWhispers {
     }
 
     static void showQueue(String responsible, int numberOfChildren) {
-        System.out.println(responsible + " tiene " + numberOfChildren + " niños en cola.");
+        final String CHILDREN = "🧍‍";
+        System.out.println(responsible + " > " + CHILDREN.repeat(numberOfChildren));
     }
 }

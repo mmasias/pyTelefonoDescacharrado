@@ -187,7 +187,7 @@ El niño [4] pasa este mensaje: Dicen que el examen estará difícil. ¡Pásalo!
 
 ## Más cosas 2Do:
 
-- [ ] Dibujar las colas.
+- [x] Dibujar las colas.
 - [ ] Hacer seguimiento del mensaje final.
 - [ ] Mostrar quién tiene la pizarra.
 - [ ] Mostrar qué tiene el que tiene la pizarra.
