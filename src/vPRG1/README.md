@@ -105,3 +105,17 @@ Para que Aysha pueda jugar, tienen que cumplirse dos condiciones:
 
 De momento aquí indicamos que Aysha puede empezar a jugar, en la siguiente iteración analizaremos y desarrollaremos la lógica necesaria para que el juego se realice.
 
+```
+(...)
+Ludoteca PRG1 - minuto 14
+> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 15
+> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 16
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aysha tiene en cola [5] y Lydia tiene en cola [0] niños
+> Aysha empieza a jugar!!!
+(...)
+```
+
+> NOTA: Corrijo una errata, se me pasó declarar MINIMAL_CHILDS.

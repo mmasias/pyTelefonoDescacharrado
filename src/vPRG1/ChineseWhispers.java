@@ -3,6 +3,7 @@ package vPRG1;
 class ChineseWhispers {
     public static void main(String[] args) {
         final int TOTAL_TIME = 120;
+        final int MINIMAL_CHILDS = 5;
         int lydia = 0;
         int aisha = 0;
         boolean isPlaying = false;
