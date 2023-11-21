@@ -8,7 +8,7 @@
 
 |Asignatura|Versión|
 |-|-|
-PRG1|
+PRG1|[vPRG1](/src/vPRG1/README.md)
 PRG2|
 EDA1|[v000](/src/v000/README.md)
 IdSw1|[Modelo del dominio](mdd.md) / [Casos de uso](cdu.md)
