@@ -7,6 +7,8 @@ class ChineseWhispers {
         int lydia = 0;
         int aisha = 0;
         boolean isPlaying = false;
+        String theMessage = "";
+        int childTurn = 0;
 
         for (int minute = 0; minute <= TOTAL_TIME; minute++) {
             System.out.println("Ludoteca PRG1 - minuto " + minute);
@@ -17,12 +19,14 @@ class ChineseWhispers {
             if (!isPlaying) {
                 aisha = aisha + lydia;
                 lydia = 0;
-                System.out.println("> No están jugando. Aysha tiene en cola [" + aisha + "] y Lydia tiene en cola ["
+                System.out.println("> No están jugando. Aisha tiene en cola [" + aisha + "] y Lydia tiene en cola ["
                         + lydia + "] niños");
             }
             if (aisha >= MINIMAL_CHILDS && !isPlaying) {
-                System.out.println("> Aysha empieza a jugar!!!");
-            }            
+                isPlaying = true;
+                theMessage = "The exam will be hard. Pass it!";
+                childTurn = 1;
+            }
         }
     }
 

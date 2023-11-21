@@ -63,59 +63,78 @@ En caso que llegue un niño, los recibe Lydia y los pone en cola.
 
 > NOTA: Aprovecho en corregir los nombres de variables y métodos al inglés. ¡Perdón! :(
 
-## Paso 004 - Si puede, se los pasa a Aysha
+## Paso 004 - Si puede, se los pasa a Aisha
 
-Si Aysha no está jugando, entonces toma los niños que tiene Lydia y los incorpora a su cola.
+Si Aisha no está jugando, entonces toma los niños que tiene Lydia y los incorpora a su cola.
 
 ```
 Ludoteca PRG1 - minuto 0
-> No están jugando. Aysha tiene en cola [0] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [0] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 1
 > Llego un niño. Ahora Lydia tiene en cola [1]
-> No están jugando. Aysha tiene en cola [1] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [1] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 2
-> No están jugando. Aysha tiene en cola [1] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [1] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 3
 > Llego un niño. Ahora Lydia tiene en cola [1]
-> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [2] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 4
-> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [2] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 5
-> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [2] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 6
-> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [2] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 7
 > Llego un niño. Ahora Lydia tiene en cola [1]
-> No están jugando. Aysha tiene en cola [3] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [3] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 8
 > Llego un niño. Ahora Lydia tiene en cola [1]
-> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 9
-> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 10
-> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
 ```
 
-## Paso 005 - ¿Aysha puede jugar?
+## Paso 005 - ¿Aisha puede jugar?
 
-Para que Aysha pueda jugar, tienen que cumplirse dos condiciones:
+Para que Aisha pueda jugar, tienen que cumplirse dos condiciones:
 
 - Que tenga más de cinco niños en cola
 - ¡Que no esté jugando!
 
-De momento aquí indicamos que Aysha puede empezar a jugar, en la siguiente iteración analizaremos y desarrollaremos la lógica necesaria para que el juego se realice.
+De momento aquí indicamos que Aisha puede empezar a jugar, en la siguiente iteración analizaremos y desarrollaremos la lógica necesaria para que el juego se realice.
 
 ```
 (...)
 Ludoteca PRG1 - minuto 14
-> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 15
-> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+> No están jugando. Aisha tiene en cola [4] y Lydia tiene en cola [0] niños
 Ludoteca PRG1 - minuto 16
 > Llego un niño. Ahora Lydia tiene en cola [1]
-> No están jugando. Aysha tiene en cola [5] y Lydia tiene en cola [0] niños
-> Aysha empieza a jugar!!!
+> No están jugando. Aisha tiene en cola [5] y Lydia tiene en cola [0] niños
+> Aisha empieza a jugar!!!
 (...)
 ```
 
 > NOTA: Corrijo una errata, se me pasó declarar MINIMAL_CHILDS.
+
+## Paso 006 - Aisha empieza a jugar
+
+Empezar a jugar puede descomponerse en dos momentos:
+
+- El inicio del juego, cuando Aisha le da el mensaje al primer niño.
+- Las siguientes etapas del juego, cuando los niños se van transmitiendo el mensaje.
+
+### Inicio del juego
+
+Al inicio del juego: 
+
+|||
+|-|-|
+Hay que indicar que estamos jugando (de modo que Lydia no pase más niños, sino que los ponga en cola)|Lo gobierna isPlaying
+Hay que preparar un mensaje|Por mantenerlo simple enviamos el mensaje "Dicen que el examen estará difícil. ¡Pásalo!"
+Hay que indicar qué niño juega (en este caso, el primero)|Creamos childTurn
+
+Esto ocurre solo al inicio de un juego, porque luego, cuando Aisha haya cedido el turno al primer niño, hay que manejarlo de otro modo (hasta llegar al último)
