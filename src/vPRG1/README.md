@@ -56,3 +56,10 @@ Ludoteca PRG1 - minuto 9
 Ludoteca PRG1 - minuto 10
 (...)
 ```
+
+## Paso 003 - Los recibe Lydia
+
+En caso que llegue un niño, los recibe Lydia y los pone en cola.
+
+> NOTA: Aprovecho en corregir los nombres de variables y métodos al inglés. ¡Perdón! :(
+
