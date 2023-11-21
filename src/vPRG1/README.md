@@ -63,3 +63,35 @@ En caso que llegue un niño, los recibe Lydia y los pone en cola.
 
 > NOTA: Aprovecho en corregir los nombres de variables y métodos al inglés. ¡Perdón! :(
 
+## Paso 004 - Si puede, se los pasa a Aysha
+
+Si Aysha no está jugando, entonces toma los niños que tiene Lydia y los incorpora a su cola.
+
+```
+Ludoteca PRG1 - minuto 0
+> No están jugando. Aysha tiene en cola [0] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 1
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aysha tiene en cola [1] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 2
+> No están jugando. Aysha tiene en cola [1] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 3
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 4
+> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 5
+> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 6
+> No están jugando. Aysha tiene en cola [2] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 7
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aysha tiene en cola [3] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 8
+> Llego un niño. Ahora Lydia tiene en cola [1]
+> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 9
+> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+Ludoteca PRG1 - minuto 10
+> No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
+```
