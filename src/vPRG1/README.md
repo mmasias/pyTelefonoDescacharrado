@@ -95,3 +95,13 @@ Ludoteca PRG1 - minuto 9
 Ludoteca PRG1 - minuto 10
 > No están jugando. Aysha tiene en cola [4] y Lydia tiene en cola [0] niños
 ```
+
+## Paso 005 - ¿Aysha puede jugar?
+
+Para que Aysha pueda jugar, tienen que cumplirse dos condiciones:
+
+- Que tenga más de cinco niños en cola
+- ¡Que no esté jugando!
+
+De momento aquí indicamos que Aysha puede empezar a jugar, en la siguiente iteración analizaremos y desarrollaremos la lógica necesaria para que el juego se realice.
+

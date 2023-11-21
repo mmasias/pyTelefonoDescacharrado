@@ -19,6 +19,9 @@ class ChineseWhispers {
                 System.out.println("> No están jugando. Aysha tiene en cola [" + aisha + "] y Lydia tiene en cola ["
                         + lydia + "] niños");
             }
+            if (aisha >= MINIMAL_CHILDS && !isPlaying) {
+                System.out.println("> Aysha empieza a jugar!!!");
+            }            
         }
     }
 
