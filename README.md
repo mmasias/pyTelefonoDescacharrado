@@ -10,5 +10,5 @@
 |-|-|
 PRG1|
 PRG2|
-EDA1|[vMugre](/src/v000/README.md)
+EDA1|[v000](/src/v000/README.md)
 IdSw1|[Modelo del dominio](mdd.md) / [Casos de uso](cdu.md)
