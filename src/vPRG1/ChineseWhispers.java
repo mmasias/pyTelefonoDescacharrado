@@ -13,6 +13,7 @@ class ChineseWhispers {
         int childTurn = 0;
 
         for (int minute = 0; minute <= TOTAL_TIME; minute++) {
+            cleanScreen();
             System.out.println("=".repeat(30));
             System.out.println("Ludoteca PRG1 - minuto " + minute);
             if (childArrives(minute)) {
@@ -68,5 +69,10 @@ class ChineseWhispers {
                 : CHILDREN.repeat(numberOfChildren);
         System.out.println(responsible + " > " + queue);
         System.out.println("-".repeat(30));
+    }
+
+    static void cleanScreen(){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 }
