@@ -1,20 +1,20 @@
 @startuml
 
-Ludoteca --> MonitorRecepcion : contiene
-Ludoteca --> MonitorJuego : contiene
+Ludoteca -- MonitorRecepcion 
+Ludoteca -- MonitorJuego 
 
 Monitor <|-- MonitorRecepcion
 Monitor <|-- MonitorJuego
 
-Monitor --> Cola : gestiona
-Monitor --> Niño : recibe y entrega
+Monitor -- Cola 
+Monitor -- Niño 
 
-Niño --> Pizarrin : posee
+Niño -- Pizarrin 
 
-Cola --> Niño : contiene
+Cola -- Niño 
 
-MonitorJuego --> Juego : inicia
+MonitorJuego -- Juego 
 
-Juego --> Pizarra : escribe
+Juego -- Pizarra 
 
 @enduml
