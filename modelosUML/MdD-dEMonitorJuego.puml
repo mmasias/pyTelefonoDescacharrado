@@ -1,0 +1,18 @@
+@startuml
+[*] --> EsperandoJuego
+EsperandoJuego : MonitorJuego espera a\nque hayan suficientes niños\nen la cola para iniciar un juego.
+
+EsperandoJuego --> IniciandoJuego : iniciar juego
+IniciandoJuego : MonitorJuego prepara el\njuego limpiando pizarras\ny pizarrines.
+
+IniciandoJuego --> PasandoMensaje : escribir mensaje inicial
+PasandoMensaje : MonitorJuego escribe el\nmensaje en el pizarrín\ndel primer niño.
+
+PasandoMensaje --> ControlandoCola : controlar paso del mensaje
+ControlandoCola : MonitorJuego verifica el\nprogreso del mensaje entre\nlos niños de la cola.
+
+ControlandoCola --> FinalizandoJuego : finalizar juego
+FinalizandoJuego : El último niño\nescribe el mensaje\nen la pizarra del salón.
+
+FinalizandoJuego --> EsperandoJuego : reiniciar juego
+@enduml

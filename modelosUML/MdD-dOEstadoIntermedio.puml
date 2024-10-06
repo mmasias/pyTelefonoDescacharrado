@@ -1,0 +1,130 @@
+@startuml
+
+object ludoteca {
+    monitorRecepcion = lydia
+    monitorJuego = aisha
+    pizarraDelSalon = pizarraSalon
+}
+
+object lydia {
+    colaNiños = colaEsperando
+    estaJugando = false
+    niñoTurno = null
+}
+
+object aisha {
+    colaNiños = colaJugando
+    estaJugando = true
+    niñoTurno = niño1
+}
+
+object colaEsperando {
+    niños = [esperando1, esperando2, esperando3]
+    niñosEnCola = 3
+}
+
+object colaJugando {
+    niños = [niño1, niño2, niño3, niño4, niño5, niño6]
+    niñosEnCola = 6
+}
+
+object pizarraSalon {
+    mensaje = "XYABCDEFGHI"
+}
+
+object niño1 {
+    nombre = "Niño1"
+    pizarrin = pizarrin1
+}
+
+object niño2 {
+    nombre = "Niño2"
+    pizarrin = pizarrin2
+}
+
+object niño3 {
+    nombre = "Niño3"
+    pizarrin = pizarrin3
+}
+
+object niño4 {
+    nombre = "Niño4"
+    pizarrin = pizarrin4
+}
+
+object niño5 {
+    nombre = "Niño5"
+    pizarrin = pizarrin5
+}
+
+object niño6 {
+    nombre = "Niño6"
+    pizarrin = pizarrin6
+}
+
+object esperando1 {
+    nombre = "Esperando1"
+    pizarrin = null
+}
+
+object esperando2 {
+    nombre = "Esperando2"
+    pizarrin = null
+}
+
+object esperando3 {
+    nombre = "Esperando3"
+    pizarrin = null
+}
+
+object pizarrin1 {
+    mensaje = "XYABCDEFGHI"
+}
+
+object pizarrin2 {
+    mensaje = "XZABCDGHIJK"
+}
+
+object pizarrin3 {
+    mensaje = "XXZABCDGHIJX"
+}
+
+object pizarrin4 {
+    mensaje = null
+}
+
+object pizarrin5 {
+    mensaje = null
+}
+
+object pizarrin6 {
+    mensaje = null
+}
+
+ludoteca --> lydia : monitorRecepcion
+ludoteca --> aisha : monitorJuego
+ludoteca --> pizarraSalon : pizarraDelSalon
+
+lydia --> colaEsperando : gestiona
+aisha --> colaJugando : gestiona
+
+colaEsperando --> esperando1 : contiene
+colaEsperando --> esperando2 : contiene
+colaEsperando --> esperando3 : contiene
+
+colaJugando --> niño1 : contiene
+colaJugando --> niño2 : contiene
+colaJugando --> niño3 : contiene
+colaJugando --> niño4 : contiene
+colaJugando --> niño5 : contiene
+colaJugando --> niño6 : contiene
+
+niño1 --> pizarrin1 : posee
+niño2 --> pizarrin2 : posee
+niño3 --> pizarrin3 : posee
+niño4 --> pizarrin4 : posee
+niño5 --> pizarrin5 : posee
+niño6 --> pizarrin6 : posee
+
+pizarraSalon --> niño1 : tiene la pizarra
+@enduml

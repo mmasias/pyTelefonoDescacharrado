@@ -1,0 +1,35 @@
+@startuml
+object ludoteca {
+    monitorRecepcion = lydia
+    monitorJuego = aisha
+    pizarraDelSalon = pizarraSalon
+}
+
+object lydia {
+    colaNiños = colaVacia
+    estaJugando = false
+    niñoTurno = null
+}
+
+object aisha {
+    colaNiños = colaVacia
+    estaJugando = false
+    niñoTurno = null
+}
+
+object colaVacia {
+    niños = []
+    niñosEnCola = 0
+}
+
+object pizarraSalon {
+    mensaje = ""
+}
+
+ludoteca --> lydia : monitorRecepcion
+ludoteca --> aisha : monitorJuego
+ludoteca --> pizarraSalon : pizarraDelSalon
+
+lydia --> colaVacia : gestiona
+aisha --> colaVacia : gestiona
+@enduml

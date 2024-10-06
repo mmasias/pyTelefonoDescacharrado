@@ -1,0 +1,97 @@
+@startuml
+
+class Ludoteca {
+    monitorRecepcion
+    monitorJuego
+    pizarraDelSalon
+    recibirNiño(niño)
+    actualizar()
+    verEstado()
+}
+
+class Monitor {
+    nombre
+    colaNiños
+    estaJugando
+    niñoTurno
+    recibeNiño(niño)
+    tieneNiños()
+    puedeJugar()
+    mostrarListaNiños()
+    entregaNiños(monitor)
+}
+
+class MonitorRecepcion {
+    recibirNiño()
+}
+
+class MonitorJuego {
+    formarCola()
+    darPizarrin()
+    iniciarJuego()
+    jugar()
+}
+
+class Niño {
+    nombre
+    pizarrin
+    recibirPizarrin(pizarra)
+    recibirMensaje(mensaje)
+    mostrarMensaje()
+    limpiarPizarrin()
+}
+
+class Pizarrin {
+    mensaje
+    escribirMensaje(mensaje)
+    leerMensaje()
+    limpiar()
+}
+
+class Cola {
+    niños
+    niñosEnCola
+    addNiño(niño)
+    removeNiño()
+    hayNiños()
+    size()
+}
+
+class Juego {
+    participantes
+    mensajeOriginal
+    iniciar()
+}
+
+class Pizarra {
+    mensaje
+    escribirMensaje(mensaje)
+    leerMensaje()
+    limpiar()
+}
+
+
+Ludoteca --> MonitorRecepcion : contiene
+Ludoteca --> MonitorJuego : contiene
+
+
+Monitor <|-- MonitorRecepcion
+Monitor <|-- MonitorJuego
+
+
+Monitor --> Cola : gestiona
+Monitor --> Niño : recibe y entrega
+
+
+Niño --> Pizarrin : posee
+
+
+Cola --> Niño : contiene
+
+
+MonitorJuego --> Juego : inicia
+
+
+Juego --> Pizarra : escribe
+
+@enduml

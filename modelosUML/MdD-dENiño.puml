@@ -1,0 +1,22 @@
+@startuml
+[*] --> EsperandoConLydia
+EsperandoConLydia : El niño está en la ludoteca\nesperando que comience el juego.
+
+EsperandoConLydia --> EnCola : pasar a cola
+EnCola : El niño está en la cola\nesperando su turno.
+
+EnCola --> RecibiendoMensaje : recibir mensaje
+RecibiendoMensaje : El niño recibe el mensaje.
+
+RecibiendoMensaje --> ModificandoMensaje : modificar mensaje
+ModificandoMensaje : El niño modifica el\nmensaje en su pizarrín.
+
+ModificandoMensaje --> PasandoMensaje : pasar mensaje
+PasandoMensaje : El niño muestra el mensaje\nal siguiente niño en la cola.
+
+PasandoMensaje --> EnCola : volver a cola
+EnCola --> EscribiendoEnPizarra : escribir en pizarra
+EscribiendoEnPizarra : El niño lleva el mensaje\na la pizarra del salón y lo escribe.
+
+EscribiendoEnPizarra --> [*] : terminar juego
+@enduml

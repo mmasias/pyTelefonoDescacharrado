@@ -1,0 +1,20 @@
+@startuml
+
+Ludoteca -- MonitorRecepcion 
+Ludoteca -- MonitorJuego 
+
+Monitor <|-- MonitorRecepcion
+Monitor <|-- MonitorJuego
+
+Monitor -- Cola 
+Monitor -- Niño 
+
+Niño -- Pizarrin 
+
+Cola -- Niño 
+
+MonitorJuego -- Juego 
+
+Juego -- Pizarra 
+
+@enduml
